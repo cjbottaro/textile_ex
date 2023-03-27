@@ -1,6 +1,6 @@
 # Textile
 
-**TODO: Add description**
+Render Textile to HTML in Elixir using a Rustextile NIF.
 
 ## Installation
 
