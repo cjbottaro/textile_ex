@@ -33,7 +33,7 @@ defmodule Textile do
     base_url: "#{source_url}/releases/download/v#{version}",
     force_build: System.get_env("FORCE_TEXTILE_BUILD") in ["1", "true"],
     targets: RustlerPrecompiled.Config.default_targets(),
-    nif_versions: ["2.16", "2.15", "2.14"],
+    nif_versions: ["2.16", "2.15"],
     version: version
 
   @typedoc """
