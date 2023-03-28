@@ -10,7 +10,9 @@ defmodule Textile.MixProject do
       deps: deps(),
       docs: [
         main: "Textile"
-      ]
+      ],
+      source_url: "https://github.com/cjbottaro/textile_ex",
+      package: package(),
     ]
   end
 
@@ -24,8 +26,27 @@ defmodule Textile.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:rustler, "~> 0.27.0"},
-      {:ex_doc, "~> 0.29", only: :dev}
+      {:rustler_precompiled, "~> 0.6.1"},
+      {:rustler, "~> 0.27.0", optional: true},
+      {:ex_doc, "~> 0.27", only: :dev, runtime: false},
+    ]
+  end
+
+  defp package() do
+    [
+      maintainers: ["Christopher Bottaro"],
+      licenses: ["Unlicense"],
+      links: %{"GitHub" => "https://github.com/cjbottaro/textile_ex"},
+      files: [
+        "lib",
+        "mix.exs",
+        "README*",
+        "native/textile/src",
+        "native/textile/.cargo",
+        "native/textile/README*",
+        "native/textile/Cargo*",
+        "checksum-*.exs"
+      ]
     ]
   end
 end

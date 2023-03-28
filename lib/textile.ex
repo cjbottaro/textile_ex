@@ -26,7 +26,15 @@ defmodule Textile do
 
   """
 
-  use Rustler, otp_app: :textile
+  source_url = Mix.Project.config()[:source_url]
+  version = Mix.Project.config()[:version]
+
+  use RustlerPrecompiled, otp_app: :textile,
+    base_url: "#{source_url}/releases/download/v#{version}",
+    force_build: System.get_env("FORCE_TEXTILE_BUILD") in ["1", "true"],
+    targets: RustlerPrecompiled.Config.default_targets(),
+    nif_versions: ["2.16", "2.15", "2.14"],
+    version: version
 
   @typedoc """
   Render options.
